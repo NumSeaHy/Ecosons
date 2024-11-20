@@ -1,0 +1,159 @@
+\documentclass{article}[a4paper, 12pt]
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+% \usepackage{bbm}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor} % to access the named colour LightGray
+\definecolor{LightGray}{gray}{0.9}
+\usepackage{graphics,graphicx}
+\usepackage{cancel}
+% \usepackage[outputdir=./build]{minted}
+% \usepackage{textgreek}
+\usepackage[
+    top=2cm,
+    bottom=2cm,
+    left=3cm,
+    right=3cm
+]{geometry}
+\usepackage{caption}    % caption options
+\captionsetup{labelfont=bf}
+\usepackage{empheq}
+\usepackage{bm}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{dirtree}
+\usepackage{import}
+\usepackage{todonotes}
+
+
+
+\DeclareMathOperator{\diver}{\mathrm{div}}
+\DeclareMathOperator{\grad}{\nabla}
+
+  
+\title{State of the Ecoson's refactorization}
+\author{NumSeaHy}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{1}
+
+\listoftodos
+
+\vspace{2cm}
+
+The charge of the echosounder data is done in the original Octave version of the Ecosons using the scripts present \url{https://github.com/daniel-rperez/ecosons/tree/master/ecosons_lib/formats}. Inside the formats folder there are the following scripts:
+
+\begin{itemize}
+    \item \texttt{fmt\_lowranceSL1.m}
+    \item \texttt{fmt\_lowranceSL2.m}
+    \item \texttt{fmt\_lowranceSLG.m}
+    \item \texttt{fmt\_simradDG.m}
+    \item \texttt{fmt\_simradRAW.m}
+    \item \texttt{parseXML.m}
+\end{itemize}
+
+Here, the biggest module is the \texttt{fmt\_simradRAW.m} that contains load function for data saved in RAW3 format. Actually this function  has been has been refactorized in Julia with the name \texttt{EA640.jl} that accepts uniquely data from the EA640 echosounder. A desirable feature is extend the module to accept not only EA640 data files, but also \todo{Add support for load datafiles correspded to the EK80 echosounder} EK80 datafiles. The loading code of the data corresponding to the lowrance is much shorter, but not has been refactorized. 
+Another interesting feature to implement is try to generate a function that saves all the data loaded the first time in a \texttt{.JLD2} file, instead have to load the binary files everytime that one have to work with the data. In this way, one only has to load the binary file (relatively high computational cost if a lot of .raw files are present) once, then they are saved in .JLD2 files and the following times the date are loaded from .JLD2 files, which is much faster \todo{Add JLD2 loading functionality} .
+
+\vspace{1cm}
+
+Once the data is loaded, the next step is compute the bathymetry associated with these data loaded. First, the seabed bottom based on these data should be dettected. For this two different methods saved in the following folder of the Octave code \url{https://github.com/daniel-rperez/ecosons/tree/master/ecosons_lib/procs} are available:
+
+\begin{itemize}
+    \item \texttt{getFirstHit.m}
+    \item \texttt{getAverageHit.m}
+\end{itemize}
+
+This two functions has been refactorized in Julia and are inside the \texttt{ComputeBathymetry.jl} module with the names \texttt{getFirstHit} and \texttt{getAverageHit} respectively. Although that several test has beem performed to check if this two refactorized algortihms gave the same results as the Octave ones, would be desirable to perform more tests an see if there is something to correct in the Julia code \todo{Perform more tests in the bottom detection algorithms}.
+
+
+Once the bottom has been detected with one of the two previous methods, a smoothing proccedure should be applied to the data. The function which performs this operation is also located in the same folder that the previous two methods  \url{https://github.com/daniel-rperez/ecosons/tree/master/ecosons_lib/procs} and has the following name:
+
+\begin{itemize}
+    \item \texttt{smoothRange.m}
+\end{itemize}
+
+This function has been also refactorized into Julia with in the same module where the functions to locate the bottom line are located: \texttt{ComputeBathymetry.jl} and has the name \texttt{smoothRange!} since in Julia is common to put a ! sign if the function modifies the data passed to it.
+
+\vspace{1cm}
+
+The next step consists in apply a tide correction to the computed data based on the data of the state of the tide. The tide correction in the original octave code, is performed using the following file \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_lib/procs/tidecorrect.m} and the menu that display the different option to the user in the following location: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_bathymetry_tidecorrection.m} that gives to the user several option to compute the tide correction:
+
+\begin{itemize}
+    \item $[1]$: Input manually the tide times and heights.
+    \item $[2]$: Input day tide height filename.  
+    \item $[3]$: Automatically choose a tide height file.  
+\end{itemize}
+
+In the Julia refactorization the option 2 is the only available one and is inside the \texttt{Tides.jl} module with the following name: \texttt{tidecorrectDay!}, the tide data are given in a \texttt{.dat} file with the information corresponding to a day like follows:
+  
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{ |c|c|c| }
+     hour  & minute & height[m] \\ 
+     5 & 46 & 3.1\\ 
+     11 & 42 & 0.8 \\ 
+     15 & 57 & 3.53 \\ 
+     23 & 12 & 0.76 \\ 
+     
+    \end{tabular}
+\end{table}
+
+the funtion corresponding to the option [1] has been refactorized with the name \texttt{tidecorrect!}, but the enter of the input user data function is not refactorized yet, so would be desirible to extend the functionality and let to the user either introuduce manually the data with an interactive menu or choose one of all the tide file between all the present tide files \todo{Let to the user introduce the data or choose a concrete tide file}.
+
+\vspace{1cm}
+
+The next step consists in perform a bathymetry subsampling, this method allows to introduce the effects of the movement of the ship into the obtained results by applying a filter of minimums. This is performed using the content contained in the following Octave file \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_bathymetry_subsampling.m} and the function that performs the Subsamplig is called radialSubsampling that is located in the following octave file: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_lib/procs/radialSubsampling.m}. The Julia refactorization of this functionality is inside the module \texttt{Subsamplin.jl} and the function that perform the operations is called \texttt{ec\_bathymetry\_subsampling!}. Only a very little quantity of examples to see if the refactorization was correct were performed (this functionality wasn't a priority), so would be desirable to perform more test to correct the refactorization if neccesary\todo{Check the refactorization of the Subsampling module}.
+
+\vspace{1cm}
+
+The next step consist in perform a resampling of the data by using a Monte Carlo simulation, arounf each of the bathymetric points generating ten points gaussianaly distributed. This operation is performed by using the content contained in \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_bathymetry_resampling.m}
+
+The program has three options to perform this computation:
+
+\begin{itemize}
+    \item $[1]$ External GIS application.
+    \item $[2]$ Kernel derivative method.
+    \item $[3]$ No slope correction.
+\end{itemize}
+
+Once that the slopes are computed with one of the three methods the resampleBathymetry function that is located in this folder: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_lib/procs/resampleBathymetry.m} is called.
+
+The option [1] is not available in Julia, since I  didn't have enough time to learn how to import and export the data to the GIS software. The only refactorized option to Julia was the option [2] and it was not intensely tested. The refactorization was splited in two main modules: \texttt{Resampling.j} and \texttt{Slopes.jl}. The second one compute the slopes, and the first one uses they to perform the resampling method. This modules has not been tested so would be desirable to check the functioning of them \todo{Verify and correct the Kernel derivative method}. At the same time, would be also useful to implement the method [3] when no slope correction is applied \todo{Implement a resampling with no slope correction}.
+
+\vspace{1cm}
+
+The last step is display the results obtained in a way that can let to the user extract some valuable information. For this pupose, the original Octave formulation has the following funcionalities:
+
+\begin{itemize}
+    \item $[1]$ Plot Echogram: that plots the echogram of a given transect. The code that generates this plot can be found in the Octave code here: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_plot_echobottom.m}
+    \item $[2]$ Plot Transects: that plot the paths covered by the ship in each of the transects. The code that generates this plot can be found in the Octave code here: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_plot_transects.m}
+    \item $[3]$ Plot 3-D bathymetry: that plots the transects in 3D where the z-component corresponds with the bathymetry height. The code that generates this plot can be found in the Octave code here: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_plot_bathymetry.m}
+    \item $[4]$ Plot Bathymetry transect crosses: that allows to represent the bathymetric differences between transect crossings. The image is only displayed if the included transects in the computation of the bathymetry present crossings. The code that generates this plot can be found in the Octave code here: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_plot_bathycross.m}
+    \item $[5]$ Interpolated bathymetry: this funcionality allows to generate much more quality images by applying an interpolation method based on a ponderate distance method. The interpolation method in the Octave code can be found here: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_lib/utils/trinterpmap.m}. All the availables plots are the three following ones, and can be found here: \url{https://github.com/daniel-rperez/ecosons/blob/master/ecosons_bathy/ec_plot_interpolation.m}:
+    \begin{itemize}
+        \item $[1]$ Colored map representation: that represents in a 2D image the processed bathymetry data.
+        \item $[2]$ 3-D elevation: that represents in a 3D image the processed bathymetry data .
+        \item $[3]$ Contour map: that represents all the bathymetric lines together extracted from the height of each of the transects.
+    \end{itemize} 
+\end{itemize}
+
+\todo{Desirable to make the previous three items using Makie}
+
+To replicate the interpolation funcionalities a function that performs the same interpolation that the Octave code has been created inside the \texttt{Utils.jl} file with the name \texttt{trinterpmap}. Even that this funciton seem to return correct results will be desirable make some other test to verify the correct behaviour of the function \todo{Verify the correct performance of the \texttt{trinterpmap} function}.
+
+To replicate the Octave ploting funcionalities, a module in Julia called \texttt{Plots} inside the \texttt{Plots.jl} file has been created. Some of the Octave function this module has the following function that replicates the behaviour of the Octave funcionalities:
+
+\begin{itemize}
+    \item  \texttt{ec\_plot\_echobottom}
+    \item \texttt{plot\_ping}
+    \item \texttt{plot\_bathymetry\_line}
+    \item \texttt{plot\_transect}
+\end{itemize}
+
+The 3D plots of the bathymetry has been created by using Plotly, that allows to generate interactive plots in an easy way. This code has not been generated here, has been generated in the BathymetryApp \url{https://github.com/NumSeaHy/SeabedExploration/blob/main/src/BathymetryApp/App.jl} and would be desirable to fill the Plot module with this funcionality \todo{Fill the Plot module with 3D plots generated by Plotly or Makie}. 
+
+\end{document}

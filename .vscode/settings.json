@@ -1,0 +1,32 @@
+{
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "editor.experimentalInlineEdit.fontFamily": "JuliaMono",
+    "editor.fontFamily": "JuliaMono, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": "'zero', 'ss01', 'ss02', 'ss03', 'ss04','ss05', 'ss06',  'ss07', 'ss08', 'ss09', 'ss10', 'ss11', 'ss12'",
+    "julia.additionalArgs": ["--project=@."],
+
+    "[latex]": {
+    "editor.wordWrap": "on"
+    },
+
+    "github.copilot.editor.enableAutoCompletions": true,
+      "github.copilot.enable": {
+          "*": true,
+          "plaintext": false,
+          "markdown": false,
+          "scminput": false,
+          "latex": false
+      },
+      
+    // "latex-workshop.view.pdf.invert": 0.0,
+
+
+    
+}
