@@ -18,17 +18,17 @@ docs/build/
 docs/site/
 
 # Ignore all .vscode directories
-.vscode/
+**/.vscode/
 
-# Ignore all files inside doc/
+# Ignore all files inside any doc/ folder
 **/doc/*
 
-# Allow .tex and .pdf files inside doc/
-**!doc/*.tex
-**!doc/*.pdf
+# Allow .tex and .pdf files inside any doc/ folder
+!**/doc/*.tex
+!**/doc/*.pdf
 
 # Ignore all RAW data files
-**data/*raw
+**/data/*raw
 
 # Ignore Manifest.toml in all directories
 **/Manifest.toml
