@@ -1,4 +1,4 @@
-<img src="assets/layout_images/logo-numseahy.png" alt="EU Flag"  width="150"/>
+<img src="assets/images/banner.png" alt="EU Flag"  width="150"/>
 
 
 # Ecosons
