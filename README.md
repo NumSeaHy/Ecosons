@@ -55,7 +55,7 @@ using JSON
     data_selected = data[transect]
     plot_echobottom(data_selected)
 
-    # Plot a single ping
+    # Plot the ping's intensity 
     ping = 1
     plot_ping(1:length(data_selected.P[ping, :]), data_selected.P[ping, :])
 
