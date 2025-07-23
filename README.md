@@ -1,4 +1,4 @@
-<img src="assets/images/banner.png" alt="EU Flag"  width="300"/>
+<img src="assets/images/banner.png" alt="EU Flag"  width="500"/>
 
 
 # Ecosons
