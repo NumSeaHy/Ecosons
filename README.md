@@ -19,6 +19,8 @@ The Ecosons Julia package aims to modernize and optimize sonar data processing o
 
 ## 🧪 Example: Load, Process, and Export Sonar Data
 
+You can find this test example in /test/Echogram.jl:
+
 ```julia
 using EcoSons
 using Test
@@ -66,16 +68,17 @@ end
 
 ## Documentation
 
-See CHANGELOG.md:
+See [CHANGELOG.md](CHANGELOG.md)
 
 <p align="center">
-  <a href="/CHANGELOG.md">  </a>
-  <i> <small> (Click to view document) </small> </i>
+  <a href="CHANGELOG.md"><b>View the CHANGELOG.md</b></a>  
+  <br>
+  <i><small>(Click to view document)</small></i>
 </p>
 
 <hr style="border:1px">  
 
-and the /docs folder.
+and the [docs folder](docs/).
 
 ## 🧱 Build
 
