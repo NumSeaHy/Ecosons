@@ -9,33 +9,81 @@ A refactorized Julia version of the [Ecosons](https://github.com/daniel-rperez/e
 
 ## To do
 
-See the documentation of the work done inside the doc folder
+- Heavy testing with the .dg files.
+- Heavy testing with Lowrance echo sounders (supported in the original Octave code).
 
-<p align="center">
-  <a href="doc/refactorization.pdf">  </a>
-  <i> <small> (Click to view document) </small> </i>
-</p>
 
-<hr style="border:1px"> 
+## 🎯 Purpose
 
-## Purpose
+The Ecosons Julia package aims to modernize and optimize sonar data processing originally developed in Octave by leveraging Julia's high-performance capabilities. It improves data handling, visualization, and computation time, making it suitable for real-time or large-scale oceanographic applications.
 
-TBD
+## 🧪 Example: Load, Process, and Export Sonar Data
 
-## Example
+```julia
+using EcoSons
+using Test
+using JSON
 
-TBD
+@testset begin
+    # Load config from JSON
+    json_path = joinpath(@__DIR__, "../config/params.json")
+    config = JSON.parsefile(json_path)
+
+    # Get .raw files
+    dir = joinpath(@__DIR__, config["data_dir"])
+    files = filter(f -> endswith(f, ".raw"), readdir(dir))
+    full_paths = joinpath.(dir, files)
+    channel = config["channel"]
+
+    # Load sonar data
+    JLD2_path = joinpath(@__DIR__, config["JLD2_dir"]["data"])
+    data, dim = load_sonar_data(channel, full_paths; jld2_path = JLD2_path)
+
+    # Select the transect
+    transect = config["transect"]
+
+    # Bottom detection using parameters
+    bottom_args = Dict(Symbol(k) => v for (k, v) in config["bottom_detection"])
+    data = compute_bottom(data; bottom_args...)
+
+    # Save the data to JLD2
+    saveJLD2("$(JLD2_path)_$(channel)", data)
+
+    # Visualize the result
+    data_selected = data[transect]
+    plot_echobottom(data_selected)
+
+    # Plot a single ping
+    ping = 1
+    plot_ping(1:length(data_selected.P[ping, :]), data_selected.P[ping, :])
+
+    # Export to file
+    export_dir = joinpath(@__DIR__, "..", "data", "echobottom.dat")
+    export_echobottom(data_selected, transect, export_dir)
+end´´´
+
 
 ## Documentation
 
-TBD 
+See CHANGELOG.md:
 
-## Build 
+<p align="center">
+  <a href="/CHANGELOG.md">  </a>
+  <i> <small> (Click to view document) </small> </i>
+</p>
 
-TBD
+<hr style="border:1px">  
+
+and the /docs folder.
+
+## 🧱 Build
+
 
 ### Authors
-This work has been carried out by Andres Prieto Aneiros (andres.prieto@udc.es) and Pablo Rubial Yáñez (p.rubialy@udc.es) during the work developed in the [NumSeaHy](https://dm.udc.es/m2nica/en/node/157) project.
+This work has been carried out by:
+
+- **Carlos Vázquez Monzón**
+  *carkol2010@hotmail.es*
 
 ### License
  <p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p> 
