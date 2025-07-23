@@ -68,7 +68,9 @@ The JSON file can be traced [here](config/params.json).
 
 Example of an echogram plot: 
 
-<img src="assets/images/echogram.png" alt="EU Flag"  width="500"/>
+<div align="center">
+  <img src="assets/images/echogram.png" alt="Echogram" width="500"/>
+</div>
 
 
 ## Documentation
