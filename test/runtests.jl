@@ -1,0 +1,17 @@
+using Test
+
+include("Bathycross.jl")
+include("Bathymetry.jl")
+#include("Classification.jl")
+include("ComputeBBFrequencies.jl")
+include("SignalSmoothing.jl")
+include("Echogram.jl")
+include("Geo.jl")
+include("Interpolation.jl")
+include("NumericCalc.jl")
+include("Others.jl")
+include("Resampling.jl")
+include("SaveDataframe.jl")
+include("SlopeCalc.jl")
+include("Subsampling.jl")
+include("Transects.jl")

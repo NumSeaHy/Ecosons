@@ -1,0 +1,68 @@
+{
+  "data_dir": "../data/EA400",
+  "channel": 1,
+  "transect": 3,
+  "bottom_detection": {
+    "sel": 2,
+    "nF": 15.0,
+    "smoothR": 10,
+    "smoothS": 8,
+    "ndB": 30,
+    "nndB": 60,
+    "do_smoothing": true
+  },
+  "echobottom":{
+    "output_file": "../data/echobottom.dat",
+    "plot_echobottom": {
+    "pings": null,
+    "bins": null
+    }
+  },
+  "bathymetry":{
+    "output_file": "../data/bathymetry.dat",
+    "n_step" : 1,
+    "e_time" : true
+  },
+  "JLD2_dir": {
+    "data": "../data/JLD2/sonar_data", 
+    "bath": "../data/JLD2/bathymetry"
+  },
+  "tides": {
+    "dir": "../data/tide.dat"
+  },
+  "classification":
+  {
+    "export_file": "../data/classification",
+    "nchan": 1,
+    "depthInf": 40.0,
+    "npings": 10,
+    "dnpings": 10, 
+    "depthRef": 1.0
+  },
+  "transects":{
+    "use_utm" : false,
+    "sel": 2, 
+    "plot": {
+      "save_dir" : "../assets/layout_images/transect_images",
+      "is3d" : false,
+      "make_gif" : false,
+      "framerate" : 15
+    },
+    "export": {
+      "file": "../data/transects.dat",
+      "n_step": 1
+    } 
+  },
+  "slopes":{
+    "krad" : 15,
+    "export_file" : "../data/slopes.dat",
+    "srad" : 5,
+    "nrsp" : 10
+  },
+  "bathycross":{
+    "point_subsampling" : 5,
+    "useUTM" : false,
+    "export_file" : "../data/bathycross.dat"
+  }
+  
+}

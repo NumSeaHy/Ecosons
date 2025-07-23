@@ -1,0 +1,4 @@
+ID	Latitude	Longitude	Depth	Intensity
+1	10.0	20.0	5.0	0.8
+2	10.1	20.1	5.2	0.9
+3	10.2	20.2	5.1	0.85
