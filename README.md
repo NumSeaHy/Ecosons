@@ -17,7 +17,7 @@ A refactorized Julia version of the [Ecosons](https://github.com/daniel-rperez/e
 
 The Ecosons Julia package aims to modernize and optimize sonar data processing originally developed in Octave by leveraging Julia's high-performance capabilities. It improves data handling, visualization, and computation time, making it suitable for real-time or large-scale oceanographic applications.
 
-## 🧪 Example: Load, Process, and Export Sonar Data
+## 🧪 Example: Load, Process, and Export Echogram Data
 
 You can find this test example in /test/Echogram.jl:
 
@@ -64,7 +64,12 @@ using JSON
     export_echobottom(data_selected, transect, export_dir)
 end
 ```
-The JSON file can be traced [here](config/params.json)
+The JSON file can be traced [here](config/params.json).
+
+Example of an echogram plot: 
+
+<img src="assets/images/echogram.png" alt="EU Flag"  width="500"/>
+
 
 ## Documentation
 
