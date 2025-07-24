@@ -30,7 +30,7 @@ Parameters controlling bottom detection in sonar data:
 - `nndB` (Integer): Secondary decibel threshold.
 - `do_smoothing` (Boolean): Apply smoothing or not.
 
-- See [`compute_bottom`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/BottomDetection.jl#LXX) for details.
+- See [`compute_bottom`](/src/lib/bathymetry/bathymetry_bottom.jl) for details.
 
 ### `echobottom`
 Settings for echobottom output and plotting:
