@@ -43,7 +43,7 @@
     "use_utm" : false,
     "sel": 2, 
     "plot": {
-      "save_dir" : "../assets/layout_images/transect_images",
+      "save_dir" : "../assets/images/transect_images",
       "is3d" : false,
       "make_gif" : false,
       "framerate" : 15
