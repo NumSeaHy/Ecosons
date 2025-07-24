@@ -94,11 +94,11 @@ Slope calculation parameters:
 
 ### `bathycross`
 Bathymetry cross-section parameters:
-- `point_subsampling`: Subsampling rate.
+- `point_subsampling`: Subsampling rate of the bathymetry crosses.
 - `useUTM`: Use UTM coordinates.
 - `export_file`: Export path.
 
-- See [`plot_bathycross`](/src/lib/bathymetry/plot_bathycross.jl).
+- See [`plot_bathycross`](/src/lib/bathymetry/plot_bathycross.jl), [`export_bathycross`](/src/lib/bathymetry/export_bathycross.jl) y [`computeCrosses`](/src/lib/bathymetry/computeCrosses.jl).
 
 ---
 
