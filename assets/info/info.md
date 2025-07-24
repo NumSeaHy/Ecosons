@@ -98,7 +98,7 @@ Bathymetry cross-section parameters:
 - `useUTM`: Use UTM coordinates.
 - `export_file`: Export path.
 
-- See [`bathymetry_cross_section`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/BathymetryCrosses.jl#LXX).
+- See [`plot_bathycross`](/src/lib/bathymetry/plot_bathycross.jl).
 
 ---
 
