@@ -93,21 +93,18 @@ To use the package locally:
 
 1. Open a Julia REPL.
 2. Change to the project directory (where `Project.toml` is located). For example:
-
-   ```julia
-   cd("EcoSons")  # or the appropriate path to the repo
-   ```
+```julia
+cd("EcoSons")  # or the appropriate path to the repo
+```
 3. Activate the environment:
 ```julia
 using Pkg
 Pkg.activate(".")
 ```
 4. Load the package:
-
 ```julia
 using EcoSons
 ```
-
 ### Authors
 This work has been carried out by:
 
