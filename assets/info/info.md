@@ -66,7 +66,7 @@ Settings for classification:
 - `dnpings`: Ping step.
 - `depthRef`: Reference depth.
 
-- See [`classify_sonar_data`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/Classification.jl#LXX).
+- See [`test_class_load`](/src/lib/classif/test_class_load.jl).
 
 ### `transects`
 Transect-related parameters:
