@@ -33,9 +33,10 @@ using JSON
     data_selected = data[transect]
     # Plot the echogram
     plot_echobottom(data_selected)
-
+    
     ping = 1
 
+    # Plot the intensity of the ping in each bing
     plot_ping(1:length(data[transect].P[ping,:]),data[transect].P[ping,:])
 
     #Export the data
