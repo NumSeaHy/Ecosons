@@ -90,7 +90,7 @@ Slope calculation parameters:
 - `srad`: Search radius.
 - `nrsp`: Number of samples.
 
-- See [`calculate_slopes`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/Slopes.jl#LXX).
+- See [`export_slopes`](/src/lib/bathymetry/export_slopes.jl), [`resampleBathymetry`](/src/lib/bathymetry/bathymetry_resampling.jl) and [`slopesFromBathymetry`](/src/lib/procs/slopesFromBathymetry.jl)
 
 ### `bathycross`
 Bathymetry cross-section parameters:
