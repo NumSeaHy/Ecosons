@@ -33,7 +33,7 @@ function loadJLD2(fn::String; isbath::Bool=false, isdata::Bool=false)
         println("Bathymetry array loaded from $filepath")
         return BATHY_ARRAY
 
-    else  # isdata == true
+    else 
         @load filepath SONAR_ARRAY
         if !@isdefined SONAR_ARRAY
             throw(KeyError("Key 'SONAR_ARRAY' not found in $filepath"))
