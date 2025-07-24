@@ -1,4 +1,4 @@
-using ..ComputeBathymetry: bathymetryCrosses, bathymetryCrosses_octave
+using ..ComputeBathymetry: bathymetryCrosses
 
 """
 Compute bathymetric transect crossings and optionally convert intersection coordinates to UTM.
