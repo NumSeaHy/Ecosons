@@ -25,7 +25,7 @@ using JSON
     data = compute_bottom(data; bottom_args...)  # Splat kwargs
 
     jld2dir = joinpath(@__DIR__, config["JLD2_dir"]["data"])
-    saveJLD2("$(jld2dir)_$(channel)", data)
+    saveJLD2("$(jld2dir)", data)
     
     # TEST change of soundVelocity
     #set_sound_velocity!(data; velocity = velocityUNESCO(20.0, 35.0, 10.0))
