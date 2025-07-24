@@ -39,7 +39,7 @@ Settings for echobottom output and plotting:
   - `pings` (Nullable): Pings range for plotting.
   - `bins` (Nullable): Bins range for plotting.
 
-- See [`plot_echobottom`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/Plotting.jl#LXX).
+- See [`plot_echobottom`](/src/lib/bathymetry/plot_echobottom.jl) and [`export_echobottom`](/src/lib/bathymetry/export_echobottom.jl)
 
 ### `bathymetry`
 Parameters for bathymetry processing:
@@ -47,7 +47,7 @@ Parameters for bathymetry processing:
 - `n_step` (Integer): Step size in processing.
 - `e_time` (Boolean): Consider elapsed time.
 
-- See [`process_bathymetry`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/Bathymetry.jl#LXX).
+- See [`export_bathymetry`](/src/lib/bathymetry/export_bathymetry.jl).
 
 ### `JLD2_dir`
 Paths for saving JLD2 data files:
