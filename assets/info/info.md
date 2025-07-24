@@ -66,7 +66,7 @@ Settings for classification:
 - `dnpings`: Ping step.
 - `depthRef`: Reference depth.
 
-- See [`test_class_load`](/src/lib/classif/test_class_load.jl).
+- See [`test_class_load`](/src/lib/classif/test_class_load.jl) and [`test_class_class`](/src/lib/classif/test_class_class.jl).
 
 ### `transects`
 Transect-related parameters:
@@ -81,7 +81,7 @@ Transect-related parameters:
   - `file`: Export path.
   - `n_step`: Export step.
 
-- See [`plot_transects`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/Transects.jl#LXX).
+- See [`plot_transects`](/src/lib/bathymetry/plot_transects.jl) and [`export_transects`](/src/lib/bathymetry/export_transects.jl).
 
 ### `slopes`
 Slope calculation parameters:
