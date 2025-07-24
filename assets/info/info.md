@@ -102,17 +102,4 @@ Bathymetry cross-section parameters:
 
 ---
 
-## Related Functions
-
-- [`load_sonar_data`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/LoadData.jl#LXX) — Load and parse raw sonar files.
-- [`compute_bottom`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/BottomDetection.jl#LXX) — Detect seabed bottom.
-- [`plot_echobottom`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/Plotting.jl#LXX) — Visualize echobottom data.
-- [`export_echobottom`](https://github.com/NumSeaHy/ecosons_julia/blob/my-branch/src/Export.jl#LXX) — Export processed data to file.
-
----
-
-*Note:* Replace `#LXX` with the actual line number or function anchor in the code files for precise linking.
-
----
-
 **Thank you for using EcoSons!**
