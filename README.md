@@ -13,11 +13,11 @@ A refactorized Julia version of the [Ecosons](https://github.com/daniel-rperez/e
 - Heavy testing with Lowrance echo sounders (supported in the original Octave code).
 
 
-## 🎯 Purpose
+## Purpose
 
 The Ecosons Julia package aims to modernize and optimize sonar data processing originally developed in Octave by leveraging Julia's high-performance capabilities. It improves data handling, visualization, and computation time, making it suitable for real-time or large-scale oceanographic applications.
 
-## 🧪 Example: Load, Process, and Export Echogram Data
+## Example: Load, Process, and Export Echogram Data
 
 You can find this test example in /test/Echogram.jl:
 
@@ -87,7 +87,7 @@ See [CHANGELOG.md](CHANGELOG.md)
 
 and the [docs folder](docs/).
 
-## 🧱 Build
+## Build
 
 To use the package locally:
 
