@@ -69,7 +69,7 @@ using JSON
     export_echobottom(data_selected, transect, export_dir)
 end
 ```
-The JSON file can be traced [here](config/params.json).
+The JSON file can be traced [here](config/params.json), and the JSON is documented [here](assets/info/info.md).
 
 Example of an echogram plot: 
 
