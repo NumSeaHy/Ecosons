@@ -13,15 +13,14 @@ This work has been carried out by:
 - **Carlos Vázquez Monzón**
   *carkol2010@hotmail.es*
 
+## Purpose
+
+The Ecosons Julia package aims to modernize and optimize sonar data processing originally developed in Octave by leveraging Julia's high-performance capabilities. It improves data handling, visualization, and computation time, making it suitable for real-time or large-scale oceanographic applications.
+
 ## To do
 
 - Heavy testing with the .dg files.
 - Heavy testing with Lowrance echo sounders (supported in the original Octave code).
-
-
-## Purpose
-
-The Ecosons Julia package aims to modernize and optimize sonar data processing originally developed in Octave by leveraging Julia's high-performance capabilities. It improves data handling, visualization, and computation time, making it suitable for real-time or large-scale oceanographic applications.
 
 ## Example: Load, Process, and Export Echogram Data
 
