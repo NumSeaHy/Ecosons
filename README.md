@@ -80,17 +80,7 @@ Example of an echogram plot:
 
 ## Documentation
 
-See [CHANGELOG.md](CHANGELOG.md)
-
-<p align="center">
-  <a href="CHANGELOG.md"><b>View the CHANGELOG.md</b></a>  
-  <br>
-  <i><small>(Click to view document)</small></i>
-</p>
-
-<hr style="border:1px">  
-
-and the [docs folder](docs/).
+See [CHANGELOG.md](CHANGELOG.md) and the [docs folder](docs/).
 
 ## Build
 
