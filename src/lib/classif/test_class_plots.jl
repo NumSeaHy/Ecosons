@@ -1,8 +1,5 @@
 using CairoMakie
 using Statistics
-using StatsBase
-
-include("clsplot.jl")
 
 """
 Generate a map-style classification plot using `clsplot`.
