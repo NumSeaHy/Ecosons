@@ -35,7 +35,6 @@ using JSON
     export_file =  joinpath(@__DIR__, config["slopes"]["export_file"])
     export_slopes(baths, slopes, export_file)
 
-    println(size(new_baths[1].depth))
     println(new_baths[1].depth[1:15])
 
 end
