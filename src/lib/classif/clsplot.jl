@@ -1,5 +1,9 @@
 using CairoMakie
 
+"""
+Plot classified points on a 2D or 3D scatter plot using CairoMakie, with automatic coloring
+and marker assignment for different classes.
+"""
 function clsplot(cCLASS::AbstractVector{<:Integer}, cCs::AbstractVector{<:Integer},
                  X::AbstractVector, Y::AbstractVector; ax=nothing, Z=nothing, charP=nothing)
 
