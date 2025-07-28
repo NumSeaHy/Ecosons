@@ -3,6 +3,8 @@ module Classification
 using Statistics, LinearAlgebra
 using ..DataTypes: classifStruct
 using ..Models: convert_true_depth
+using ..Utils: nnmean, nnstd
+
 include("./lib/classif/test_class_config.jl")
 include("./lib/classif/test_class_load.jl")
 include("./lib/classif/test_class_class.jl")

@@ -1,4 +1,3 @@
-include("../utils/nnmean.jl")
 # Ping distance functions
 
 #= facer un submuestreo dos pings do RAW

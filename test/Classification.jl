@@ -34,7 +34,7 @@ else
 end    
 
 CLASSIFICATION = test_class_class(PS, PS0, PS20, PS2, lonS, latS, depthS, length(lsRAW), depthInf,
-    depthRef, nchan, transectNo, pingFromNo, pingToNo, ping_distance, ping_average)
+    depthRef, nchan, transectNo, pingFromNo, pingToNo, ping_distance, ping_average) 
 
 name = joinpath(@__DIR__, config["classification"]["export_file"])
 test_class_Es(CLASSIFICATION, name)
@@ -71,3 +71,11 @@ Colorbar(fig[1, 2], hm)  # Add colorbar next to heatmap
 clsplot(CLASSIFICATION.tCLASS, CLASSIFICATION.cCs, Xp, Yp; ax=ax)
 
 display(fig)
+
+plot_class_map(CLASSIFICATION.tCLASS, CLASSIFICATION.cCs, CLASSIFICATION.lonS, CLASSIFICATION.latS)
+
+plot_mean_std(CLASSIFICATION.tCLASS, CLASSIFICATION.cCs, CLASSIFICATION.PS, CLASSIFICATION.cPINGS)
+
+plot_median_range(CLASSIFICATION.tCLASS, CLASSIFICATION.cCs, CLASSIFICATION.PS, CLASSIFICATION.cPINGS)
+
+plot_min_max(CLASSIFICATION.tCLASS, CLASSIFICATION.cCs, CLASSIFICATION.PS, CLASSIFICATION.cPINGS)

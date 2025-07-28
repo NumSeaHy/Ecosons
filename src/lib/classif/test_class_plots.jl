@@ -1,10 +1,8 @@
 using CairoMakie
 using Statistics
 using StatsBase
-using NumUtils
 
 include("clsplot.jl")
-
 
 """
 Generate a map-style classification plot using `clsplot`.
@@ -14,8 +12,7 @@ function plot_class_map(tCLASS, cCs, lonS, latS)
     f1 = Figure()
     ax1 = Axis(f1[1,1])
     clsplot(tCLASS, cCs, lonS, latS; ax=ax1)
-    axislimits!(ax1, minimum(lonS), maximum(lonS), minimum(latS), maximum(latS))
-    axisaspect(ax1, DataAspect())
+    limits!(ax1, minimum(lonS), maximum(lonS), minimum(latS), maximum(latS))
     display(f1)
 end
 
@@ -27,8 +24,8 @@ function plot_mean_std(tCLASS, cCs, PS, cPINGS)
     ax2 = Axis(f2[1,1])
     for (n, cls) in enumerate(cCs)
         cp = cPINGS[cls, :]
-        avg = nnmean(PS[tCLASS .== cls, :], dims = 1)
-        std = nnstd(PS[tCLASS .== cls, :], dims = 1)
+        avg = nnmean(PS[tCLASS .== cls, :])
+        std = nnstd(PS[tCLASS .== cls, :])
         x = 1:length(cp)
         color = get(Makie.wong_colors(), mod(n, 6) + 1, :black)
         lines!(ax2, x, cp, label="Class $cls", color=color)
