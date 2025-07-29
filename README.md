@@ -11,11 +11,6 @@ A refactorized Julia version of the [Ecosons](https://github.com/daniel-rperez/e
 
 The Ecosons Julia package aims to modernize and optimize sonar data processing originally developed in Octave by leveraging Julia's high-performance capabilities. It improves data handling, visualization, and computation time, making it suitable for real-time or large-scale oceanographic applications.
 
-## To do
-
-- Heavy testing with the .dg files.
-- Heavy testing with Lowrance echo sounders (supported in the original Octave code).
-
 ## Example: Load, Process, and Export Echogram Data
 
 You can find this test example in /test/Echogram.jl:
@@ -76,6 +71,11 @@ Example of an echogram plot:
 
 See [CHANGELOG.md](CHANGELOG.md) and the [docs folder](docs/).
 
+## To do
+
+- Heavy testing with the .dg files.
+- Heavy testing with Lowrance echo sounders (supported in the original Octave code).
+
 ## Build
 
 To use the package locally:
@@ -96,7 +96,7 @@ using EcoSons
 ```
 
 ### CRediT authorship contribution statement
-**Carlos Vázquez Monzón**: Refactorization, Review, Optimization software.  **Noela Sánchez**: Software, Methodology, Funding acquisition, Conceptualization. **Daniel Rodríguez**: Software, Methodology, Funding acquisition, Conceptualization. **A. Prieto**: Review, Supervision, Methodology, Funding acquisition.
+**Carlos Vázquez Monzón**: Refactorization, Review, Optimization software.  **Noela Sánchez**: Software, Methodology, Conceptualization. **Daniel Rodríguez**: Software, Methodology, Conceptualization. **A. Prieto**: Review, Supervision, Funding acquisition.
 
 ### License
  <p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p> 
