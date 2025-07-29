@@ -7,9 +7,6 @@
 
 A refactorized Julia version of the [Ecosons](https://github.com/daniel-rperez/ecosons/tree/master) software written originally in Octave.
 
-### CRediT authorship contribution statement
-**Carlos Vázquez Monzón**: Refactorization, Review, Optimization software.  **Noela Sánchez**: Software, Methodology, Funding acquisition, Conceptualization. **Daniel Rodríguez**: Software, Methodology, Funding acquisition, Conceptualization. **A. Prieto**: Review, Supervision, Methodology, Funding acquisition.
-
 ## Purpose
 
 The Ecosons Julia package aims to modernize and optimize sonar data processing originally developed in Octave by leveraging Julia's high-performance capabilities. It improves data handling, visualization, and computation time, making it suitable for real-time or large-scale oceanographic applications.
@@ -97,6 +94,9 @@ Pkg.activate(".")
 ```julia
 using EcoSons
 ```
+
+### CRediT authorship contribution statement
+**Carlos Vázquez Monzón**: Refactorization, Review, Optimization software.  **Noela Sánchez**: Software, Methodology, Funding acquisition, Conceptualization. **Daniel Rodríguez**: Software, Methodology, Funding acquisition, Conceptualization. **A. Prieto**: Review, Supervision, Methodology, Funding acquisition.
 
 ### License
  <p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p> 
