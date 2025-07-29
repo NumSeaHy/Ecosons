@@ -7,11 +7,8 @@
 
 A refactorized Julia version of the [Ecosons](https://github.com/daniel-rperez/ecosons/tree/master) software written originally in Octave.
 
-### Authors
-This work has been carried out by:
-
-- **Carlos Vázquez Monzón**
-  *carkol2010@hotmail.es*
+### CRediT authorship contribution statement
+**Carlos Vázquez Monzón**: Refactorization, Review, Optimization software.  **Noela Sánchez**: Software, Methodology, Funding acquisition, Conceptualization. **Daniel Rodríguez**: Software, Methodology, Funding acquisition, Conceptualization. **A. Prieto**: Review, Supervision, Methodology, Funding acquisition.
 
 ## Purpose
 
