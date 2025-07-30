@@ -71,10 +71,6 @@ Example of an echogram plot:
 
 See [CHANGELOG.md](CHANGELOG.md) and the [docs folder](docs/).
 
-## To do
-
-- Heavy testing with the .dg files.
-- Heavy testing with Lowrance echo sounders (supported in the original Octave code).
 
 ## Build
 
