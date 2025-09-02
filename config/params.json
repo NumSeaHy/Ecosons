@@ -4,9 +4,9 @@
   "transect": 3,
   "bottom_detection": {
     "sel": 2,
-    "nF": 15.0,
-    "smoothR": 10,
-    "smoothS": 8,
+    "nF": 5.0,
+    "smoothR": 5,
+    "smoothS": 2,
     "ndB": 30,
     "nndB": 60,
     "do_smoothing": true
