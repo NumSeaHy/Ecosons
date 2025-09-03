@@ -1,6 +1,6 @@
 <img src="assets/images/logo-numseahy.png" alt="EU Flag"  width="150"/>
 
-# Ecosons
+# Ecosons.jl
 
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://gridap.github.io/GridapHybrid.jl/dev)
 
