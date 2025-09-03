@@ -1,4 +1,4 @@
-using EcoSons
+using Ecosons
 using JSON
 
 # === Load config from JSON ===

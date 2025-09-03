@@ -1,7 +1,7 @@
 {
-  "data_dir": "../data/EA400",
+  "data_dir": "../data/narrowband",
   "channel": 1,
-  "transect": 3,
+  "transect": 2,
   "bottom_detection": {
     "sel": 2,
     "nF": 5.0,
@@ -45,7 +45,7 @@
     "plot": {
       "save_dir" : "../assets/images/transect_images",
       "is3d" : false,
-      "make_gif" : false,
+      "make_gif" : true,
       "framerate" : 15
     },
     "export": {

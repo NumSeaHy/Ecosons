@@ -1,6 +1,6 @@
-# EcoSons Configuration Parameters
+# Ecosons Configuration Parameters
 
-This document describes the JSON configuration parameters used in the EcoSons Julia package for sonar data processing.
+This document describes the JSON configuration parameters used in the Ecosons Julia package for sonar data processing.
 
 ---
 
@@ -102,4 +102,4 @@ Bathymetry cross-section parameters:
 
 ---
 
-**Thank you for using EcoSons!**
+**Thank you for using Ecosons!**

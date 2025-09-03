@@ -1,8 +1,8 @@
 
-# EcoSons Julia Package Overview
+# Ecosons Julia Package Overview
 
 **Author:** Carlos Vázquez Monzón  
-**Project:** Port of the EcoSons project from Octave to Julia
+**Project:** Port of the Ecosons project from Octave to Julia
 
 ---
 

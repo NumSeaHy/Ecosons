@@ -1,4 +1,4 @@
-module EcoSons
+module Ecosons
 
 using Reexport
 

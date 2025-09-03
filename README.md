@@ -16,7 +16,7 @@ The Ecosons Julia package aims to modernize and optimize sonar data processing o
 You can find this test example in /test/Echogram.jl:
 
 ```julia
-using EcoSons
+using Ecosons
 using Test
 using JSON
 
@@ -79,7 +79,7 @@ To use the package locally:
 1. Open a Julia REPL.
 2. Change to the project directory (where `Project.toml` is located). For example:
 ```julia
-cd("EcoSons")  # or the appropriate path to the repo
+cd("Ecosons")  # or the appropriate path to the repo
 ```
 3. Activate the environment:
 ```julia
@@ -88,7 +88,7 @@ Pkg.activate(".")
 ```
 4. Load the package:
 ```julia
-using EcoSons
+using Ecosons
 ```
 
 ### CRediT authorship contribution statement

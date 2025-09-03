@@ -1,4 +1,4 @@
-using EcoSons
+using Ecosons
 using CairoMakie, Statistics, LinearAlgebra
 using Test 
 

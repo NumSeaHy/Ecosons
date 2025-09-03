@@ -1,8 +1,8 @@
 ENVI
 description = {
   Julia ENVI export }
-samples = 2
-lines = 1
+samples = 9
+lines = 4
 bands = 1
 header offset = 0
 file type = ENVI Standard
@@ -12,6 +12,6 @@ sensor type = Unknown
 byte order = 0
 x start = 1
 y start = 1
-map info = {UTM, 1.0, 1.0, 703575.904, 4.168322947e6, 7.805, 0.0, 30, North, WGS-84, units=Meters}
+map info = {UTM, 1.0, 1.0, 708285.297, 4.169524183e6, 9.4, 0.0, 30, North, WGS-84, units=Meters}
 wavelength units = Unknown
 band names = {Bathymetry}

@@ -1,7 +1,7 @@
 using BenchmarkTools
 using Test
 using JSON
-using EcoSons
+using Ecosons
 using CairoMakie
 
 @testset begin

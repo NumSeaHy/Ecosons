@@ -1,4 +1,4 @@
-using EcoSons
+using Ecosons
 
 # write this if you want to test it individually, if not, just Pkg.test()
 using Test, JSON

@@ -1,7 +1,7 @@
 using CairoMakie
 using Statistics
 using JSON
-using EcoSons
+using Ecosons
 
 json_path = joinpath(@__DIR__, "../config/params.json")
 config = JSON.parsefile(json_path)

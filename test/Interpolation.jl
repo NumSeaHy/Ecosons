@@ -1,4 +1,4 @@
-using EcoSons
+using Ecosons
 using CairoMakie, Random
 import Distributions
 using Test
